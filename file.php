@@ -6,6 +6,6 @@ $data = $_POST['imageblob'];
 
 $data = str_replace('data:image/jpeg;base64,', '', $data);
 $data = base64_decode($data);
-$file = 'images/'. uniqid() . '.jpg';
+$file = uniqid() . '.jpg';
 $success = file_put_contents($file, $data);
 print "Image has been saved!";

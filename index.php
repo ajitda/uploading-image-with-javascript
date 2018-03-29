@@ -5,8 +5,9 @@
 	<title>Resize Before Upload</title>
 </head>
 <body>
-	<input name="imagefile" type="file"  onchange="uploadPhotos('#{imageUploadUrl}')" />
+	
 	<form id="uploadImageForm" enctype="multipart/form-data" action="file.php" method="POST">
+		<input name="imagefile" type="file"   />
 		<input type="hidden" id="image_data" name="imageblob"  />
 	    <button type="submit">submit</button>
 	</form>
@@ -14,10 +15,17 @@
 
 </body>
 </html>
-<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-  crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <script type="text/javascript">
-	window.uploadPhotos = function(url){
+    $('input[name=imagefile]').on('change',function(){
+
+        var url = $(this).val();
+        console.log(url);
+
+        uploadPhotos(url);
+    });
+
+	function uploadPhotos(url){
     // Read in file
     var file = event.target.files[0];
     // Ensure it's an image

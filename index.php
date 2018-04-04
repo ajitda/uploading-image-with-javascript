@@ -5,7 +5,7 @@
 	<title>Resize Before Upload</title>
 </head>
 <body>
-	
+	<h1>Upload File to Resize</h1>
 	<form id="uploadImageForm" enctype="multipart/form-data" action="file.php" method="POST">
 		<input name="imagefile" type="file"   />
 		<input type="hidden" id="image_data" name="imageblob"  />
